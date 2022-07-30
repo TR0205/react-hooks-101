@@ -3,13 +3,11 @@ import React, { useContext } from 'react';
 import Event from './Event'
 import AppContext from '../contexts/AppContext'
 
-const Events = (props) => {
-    const { state, dispatch } = props;
-    const value = useContext(AppContext);
+const Events = () => {
+    const { state } = useContext(AppContext);
 
     return (
         <>
-            {value}
             <h4>イベント一覧</h4>
             <table className='table table-hover'>
                 <thead>
@@ -21,7 +19,7 @@ const Events = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {state.map((event, index) => (<Event key={index} event={event} dispatch={dispatch} />))}
+                    {state.map((event, index) => (<Event key={index} event={event} />))}
                 </tbody>
             </table>
         </>
